@@ -34,6 +34,9 @@ export default {
   plugins: [
     '~/plugins/components'
   ],
+  router: {
+    middleware: 'languageDetection'
+  },
   /*
   ** Nuxt.js dev-modules
   */

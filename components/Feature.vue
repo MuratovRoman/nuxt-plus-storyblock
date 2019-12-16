@@ -1,11 +1,31 @@
 <template>
-  <div class="util__flex-eq" v-editable="blok">
+  <div class="feature util__flex-eq" v-editable="blok">
+    <img :src="resizedIcon" class="feature__icon">
     <h1>{{ blok.name }}</h1>
+    <div class="feature__description">
+      {{ blok.description }}
+    </div>
   </div>
 </template>
 
 <script>
 export default {
+  computed: {
+    resizedIcon () {
+      if (typeof this.blok.icon !== 'undefined') {
+        return '//img2.storyblok.com/80x80' + this.blok.icon.replace('//a.storyblok.com', '')
+      }
+      return null
+    }
+  },
   props: ['blok']
 }
 </script>
+
+<style lang="sass" scoped>
+.feature
+  text-align: center
+  padding: 30px 10px 100px
+  &__icon
+    max-width: 80px
+</style>
