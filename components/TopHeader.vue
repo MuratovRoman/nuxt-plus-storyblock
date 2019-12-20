@@ -2,8 +2,8 @@
   <header class="top-header util__flex util__container">
     <nav class="top-header__col">
       <ul class="nav top-header__nav">
-        <li :key="index" v-for="(navitem, index) in $store.state.settings.main_navi" class="top-header__link">
-          <nuxt-link class="nav__item" :to="navitem.link.cached_url">
+        <li :key="index" v-for="(navitem, index) in $store.state.settings.main_navi" class="nav__item">
+          <nuxt-link class="top-header__link" :to="navitem.link.cached_url">
             {{ navitem.name }}
           </nuxt-link>
         </li>
@@ -15,10 +15,10 @@
     <nav class="top-header__col top-header__second-navi">
       <ul class="nav top-header__nav">
         <li>
-          <nuxt-link class="nav__item" to="/en/blog">English</nuxt-link>
+          <nuxt-link class="top-header__link" to="/en/blog">English</nuxt-link>
         </li>
         <li>
-          <nuxt-link class="nav__item" to="/de/blog">German</nuxt-link>
+          <nuxt-link class="top-header__link" to="/de/blog">German</nuxt-link>
         </li>
       </ul>
     </nav>
@@ -42,4 +42,23 @@
             top: -15px
     &__second-navi
         text-align: right
+    &__nav
+      display: flex
+      list-style: none
+      margin: 0
+      padding: 0
+      li
+        padding: 0 20px 0 0
+      &--right
+        li
+          padding-right: 0
+          padding-left: 20px
+    &__link
+      line-height: 1.5
+      color: #000
+      text-decoration: none
+      border-bottom: 2px solid transparent
+      transition: border-color .15s ease
+      &:hover
+        border-color: #000
 </style>
